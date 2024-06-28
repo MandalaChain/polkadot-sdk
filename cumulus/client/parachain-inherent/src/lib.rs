@@ -150,8 +150,9 @@ impl ParachainInherentDataProvider {
 		relay_chain_interface: &impl RelayChainInterface,
 		validation_data: &PersistedValidationData,
 		para_id: ParaId,
-		additional_keys: Vec<Vec<u8>>,
 	) -> Option<ParachainInherentData> {
+		// FIXME : hack
+		let additional_keys = vec![];
 		let relay_chain_state =
 			collect_relay_storage_proof(relay_chain_interface, para_id, relay_parent, additional_keys).await?;
 
